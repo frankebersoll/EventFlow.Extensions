@@ -16,6 +16,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          
+      - name: Install nbgv
+        run: dotnet tool install --tool-path . nbgv
+      
+      - name: Set Version
+        run: .\nbgv cloud --common-vars
 
       - name: publish on version change
         id: publish_nuget
