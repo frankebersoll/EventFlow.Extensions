@@ -24,7 +24,7 @@ jobs:
         run: ./nbgv cloud --common-vars
       
       - name: Add package source
-        run: dotnet nuget add source https://nuget.pkg.github.com/frankebersoll -n github -u frankebersoll -p ${{secrets.GITHUB_TOKEN}}
+        run: dotnet nuget add source https://nuget.pkg.github.com/frankebersoll -n github -u frankebersoll -p ${{secrets.GITHUB_TOKEN}} --store-password-in-clear-text
 
       - name: publish on version change
         id: publish_nuget
