@@ -21,7 +21,7 @@ jobs:
         run: dotnet tool install --tool-path . nbgv
       
       - name: Set Version
-        run: .\nbgv cloud --common-vars
+        run: ./nbgv cloud --common-vars
 
       - name: publish on version change
         id: publish_nuget
