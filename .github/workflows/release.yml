@@ -23,6 +23,6 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
       - name: Pack
-        run: dotnet pack --configuration Release --no-restore --output out
+        run: dotnet pack --configuration Release --no-restore --output out --include-symbols
       - name: Push
         run: dotnet nuget push 'out/*.nupkg' -k ${{secrets.NUGET_API_KEY}} --skip-duplicate -s https://api.nuget.org/v3/index.json
