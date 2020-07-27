@@ -3,7 +3,13 @@
 
   <PropertyGroup>
     <RepositoryUrl>https://github.com/frankebersoll/EventFlow.Extensions</RepositoryUrl>
-  </PropertyGroup>
+    <ProjectUrl>$(RepositoryUrl)</ProjectUrl>
+    <PackageId>FrankEbersoll.$(MSBuildProjectName)</PackageId>
+    <Authors>Frank Ebersoll</Authors>
+    <Copyright>Copyright © 2020 Frank Ebersoll. All rights reserved.</Copyright>
+    <Description>Unofficial extensions for the EventFlow framework (https://github.com/eventflow/EventFlow)</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning">
