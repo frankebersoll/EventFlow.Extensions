@@ -1,15 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <PropertyGroup>
+  <PropertyGroup Label="NuGet">
     <RepositoryUrl>https://github.com/frankebersoll/EventFlow.Extensions</RepositoryUrl>
-    <ProjectUrl>$(RepositoryUrl)</ProjectUrl>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
     <PackageId>FrankEbersoll.$(MSBuildProjectName)</PackageId>
     <Authors>Frank Ebersoll</Authors>
     <Copyright>Copyright © 2020 Frank Ebersoll. All rights reserved.</Copyright>
     <Description>Unofficial extensions for the EventFlow framework (https://github.com/eventflow/EventFlow)</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-</PropertyGroup>
+  </PropertyGroup>
+
+  <PropertyGroup Label="SourceLink" Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <ContinuousIntegrationBuild>True</ContinuousIntegrationBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup Label="SourceLink" Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning">
