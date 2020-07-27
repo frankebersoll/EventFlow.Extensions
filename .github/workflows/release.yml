@@ -20,11 +20,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.301
-      - name: Install gpr
-        run: dotnet tool install gpr --global
       - name: Install dependencies
         run: dotnet restore
       - name: Pack
         run: dotnet pack --configuration Release --no-restore
       - name: Push
-        run: find -name "*.nupkg" -print -exec gpr push -k ${{secrets.GITHUB_TOKEN}} {} \;
+        run: dotnet nuget push -k ${{secrets.NUGET_API_KEY}} --skip-duplicate
