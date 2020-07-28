@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+    <EmbeddedFiles Include="$(VersionSourceFile)" />
   </ItemGroup>
 
   <ItemGroup>
