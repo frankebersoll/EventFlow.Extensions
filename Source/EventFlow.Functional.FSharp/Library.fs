@@ -11,7 +11,10 @@
         | Ignore
         | NoResult
 
-    type private HandlerF<'Agg,'Id,'State,'Command,'Event when 'Agg :> FnAggregateRoot<'Agg,'Id,'State> and 'Id :> IIdentity> =
+    type private HandlerF<'Agg,'Id,'State,'Command,'Event 
+        when 'Agg :> FnAggregateRoot<'Agg,'Id,'State> 
+        and 'Id :> IIdentity
+        and 'Event :> IAggregateEvent<'Agg,'Id>> =
         'Agg -> 'State -> 'Command -> seq<'Event>
 
     type private TransitionF<'Agg,'Id,'State when 'Agg :> FnAggregateRoot<'Agg,'Id,'State> and 'Id :> IIdentity> = 
