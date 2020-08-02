@@ -7,23 +7,20 @@
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
     <PackageId>FrankEbersoll.$(MSBuildProjectName)</PackageId>
     <Authors>Frank Ebersoll</Authors>
-    <Copyright>Copyright © 2020 Frank Ebersoll. All rights reserved.</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::Now.Year) Frank Ebersoll. All rights reserved.</Copyright>
     <Description>Unofficial extensions for the EventFlow framework (https://github.com/eventflow/EventFlow)</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
-  <PropertyGroup>
+  <PropertyGroup Label="SourceLink" Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Label="SourceLink" Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <EmbeddedFiles Include="$(VersionSourceFile)" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
